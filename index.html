@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Capsule - Preserve Your Legacy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" class="logo-icon">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff9a9e"/>
+                            <stop offset="100%" style="stop-color:#fecfef"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="8" y="12" width="24" height="16" rx="8" fill="url(#logoGradient)"/>
+                    <circle cx="20" cy="20" r="3" fill="white"/>
+                    <path d="M15 20 L18 23 L25 16" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                <span class="logo-text">Legacy Capsule</span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="#templates" class="nav-link">Templates</a>
+                <a href="#bundles" class="nav-link">Bundles</a>
+                <a href="#custom" class="nav-link">Custom</a>
+                <a href="#reseller" class="nav-link">Reseller</a>
+                
+                <div class="cart-container">
+                    <button class="cart-btn" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </button>
+                </div>
+                
+                <button class="checkout-btn" onclick="goToCheckout()">Checkout</button>
+            </div>
+            
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: $<span id="cartTotal">0.00</span></strong>
+            </div>
+            <button class="checkout-btn-full" onclick="goToCheckout()">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Preserve Your Legacy</h1>
+                <p class="hero-subtitle">Create beautiful, fillable, and interactive PDFs to capture memories, stories, and moments for your loved ones. Your digital time capsule awaits.</p>
+                
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="Legacy Capsule Explanation" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('templates')">Browse Templates</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('custom')">Custom Design</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Our PDFs -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Our PDFs?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Beautiful Designs</h3>
+                    <p>Professionally crafted templates with stunning layouts, elegant typography, and thoughtful design elements that make your memories shine.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Easy Customization</h3>
+                    <p>Simple interface to add text, photos, audio, video, and personal touches. No technical skills required - just fill and create.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Instant Downloads</h3>
+                    <p>Get your customized templates immediately after purchase. No waiting, no delays - start preserving memories right away.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium PDFs Marketplace -->
+    <section id="templates" class="templates-section">
+        <div class="container">
+            <h2 class="section-title">Premium PDF Templates</h2>
+            <div class="templates-grid" id="templatesGrid">
+                <!-- Templates will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bundle Deals -->
+    <section id="bundles" class="bundles-section">
+        <div class="container">
+            <h2 class="section-title">Bundle Deals - Save More!</h2>
+            <div class="bundles-grid" id="bundlesGrid">
+                <!-- Bundles will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom PDF Request -->
+    <section id="custom" class="custom-section">
+        <div class="container">
+            <div class="custom-content">
+                <div class="custom-info">
+                    <h2>Need Something Custom?</h2>
+                    <p>Can't find exactly what you're looking for? Our design team can create a completely custom PDF template tailored to your specific needs and vision.</p>
+                    <button class="btn btn-primary" onclick="showQuoteModal()">Request a Quote</button>
+                </div>
+                
+                <div class="custom-form-container">
+                    <h3>Custom Template Request</h3>
+                    <form class="custom-form" id="customForm">
+                        <div class="form-group">
+                            <label for="customName">Your Name *</label>
+                            <input type="text" id="customName" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customEmail">Email Address *</label>
+                            <input type="email" id="customEmail" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="templateType">Template Type</label>
+                            <select id="templateType" name="templateType">
+                                <option value="">Select a type...</option>
+                                <option value="memory">Memory Book</option>
+                                <option value="celebration">Celebration</option>
+                                <option value="memorial">Memorial</option>
+                                <option value="business">Business</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customFiles">Upload Reference Files</label>
+                            <input type="file" id="customFiles" name="files" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx">
+                            <small>Upload images, documents, or other reference materials</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customNotes">Custom Request Description *</label>
+                            <textarea id="customNotes" name="notes" rows="4" 
+                                      placeholder="Describe your custom template needs, including style, content, and any special requirements..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseller Program -->
+    <section id="reseller" class="reseller-section">
+        <div class="container">
+            <h2 class="section-title">Reseller Program: Earn Money Selling Our Templates</h2>
+            
+            <div class="reseller-content">
+                <div class="reseller-video">
+                    <div class="video-wrapper">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="Reseller Program Explanation" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="reseller-benefits">
+                    <h3>Why Become a Reseller?</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Earn 40% commission on every sale</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>White-label branding options</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Instant delivery system</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Marketing materials provided</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dedicated support team</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>No minimum sales requirements</span>
+                        </div>
+                    </div>
+                    
+                    <div class="reseller-packages">
+                        <h4>Reseller Package Options</h4>
+                        <div class="packages-grid">
+                            <div class="package-card">
+                                <h5>Basic</h5>
+                                <p class="package-price">Free</p>
+                                <ul>
+                                    <li>30% commission</li>
+                                    <li>Basic marketing materials</li>
+                                    <li>Email support</li>
+                                </ul>
+                            </div>
+                            <div class="package-card featured">
+                                <h5>Pro</h5>
+                                <p class="package-price">$49/month</p>
+                                <ul>
+                                    <li>40% commission</li>
+                                    <li>Premium marketing materials</li>
+                                    <li>Priority support</li>
+                                    <li>White-label options</li>
+                                </ul>
+                            </div>
+                            <div class="package-card">
+                                <h5>Partner</h5>
+                                <p class="package-price">$99/month</p>
+                                <ul>
+                                    <li>50% commission</li>
+                                    <li>Custom branding</li>
+                                    <li>Dedicated account manager</li>
+                                    <li>Custom templates</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="joinResellerProgram()">Join Reseller Program</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Upload Section -->
+    <section class="music-section">
+        <div class="container">
+            <h2 class="section-title">Upload Your Favorite Music</h2>
+            <div class="music-content">
+                <div class="music-info">
+                    <h3>Enhance Your Memories with Sound</h3>
+                    <p>Upload your favorite songs, voice recordings, or ambient sounds to make your PDF time capsules even more special and personal. Music adds an emotional layer that brings memories to life.</p>
+                    
+                    <div class="ai-dictation">
+                        <h4><i class="fas fa-microphone"></i> AI Dictation Tool</h4>
+                        <p>Use our speech-to-text feature to dictate your memories and stories directly into your PDF templates.</p>
+                        <button class="btn btn-secondary" onclick="startDictation()">
+                            <i class="fas fa-microphone"></i> Start Dictating
+                        </button>
+                        <div class="dictation-output" id="dictationOutput" style="display: none;">
+                            <textarea id="dictationText" placeholder="Your dictated text will appear here..." rows="4"></textarea>
+                            <button class="btn btn-primary" onclick="addDictationToTemplate()">Add to Template</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="music-upload">
+                    <div class="upload-area" onclick="document.getElementById('musicFile').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h4>Upload Audio File</h4>
+                        <p>Drag and drop or click to browse</p>
+                        <small>Supports MP3, WAV, AAC (Max 50MB)</small>
+                        <input type="file" id="musicFile" accept="audio/*" style="display: none;" onchange="handleMusicUpload(event)">
+                    </div>
+                    
+                    <div class="uploaded-music" id="uploadedMusic" style="display: none;">
+                        <h4>Uploaded Audio:</h4>
+                        <div class="music-player" id="musicPlayer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Legacy Capsule helped me create the most beautiful memory book for my grandmother's 90th birthday. The templates are gorgeous and so easy to customize! The AI dictation feature made it simple to add all our family stories."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Sarah Johnson">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Family Memory Book</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The baby's first year template captured every precious moment perfectly. I love that I can add audio recordings of my baby's first words and upload videos of their first steps. It's like a digital scrapbook that will last forever!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100" alt="Emily Rodriguez">
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <span>New Mother</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"I've been selling these templates through the reseller program for 6 months. The commission is great and the support team is amazing! My customers love the quality and the instant download feature."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=100" alt="David Thompson">
+                        <div class="author-info">
+                            <h4>David Thompson</h4>
+                            <span>Reseller Partner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How do I customize the PDF templates?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our PDF templates are designed to be easily customizable. After purchase, you can add text, images, audio, and video content directly into the fillable fields. Use our AI dictation tool to add voice content, or upload your own media files.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Can I add my own photos, videos, and audio?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! All our templates support multimedia content. You can upload photos, videos (MP4), audio files (MP3, WAV), and even documents. Each template has designated spaces for different types of media.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How does the AI dictation feature work?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI dictation tool uses advanced speech-to-text technology. Simply click the microphone button, speak your memories or stories, and the text will be automatically transcribed and added to your PDF template.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>What file formats do you support?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We support common image formats (JPG, PNG, GIF), audio formats (MP3, WAV, AAC), video formats (MP4, MOV), and documents (PDF, DOC, DOCX). Each media file should be under 50MB for optimal performance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>How does the reseller program work?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our reseller program allows you to sell our templates to your audience and earn commission. We provide marketing materials, tracking links, and dedicated support. Choose from Basic (30%), Pro (40%), or Partner (50%) commission levels.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3>Is payment secure?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We use Stripe for secure payment processing. Your payment information is encrypted and never stored on our servers. We accept all major credit cards and PayPal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-cta">
+                <h2>Start Preserving Your Legacy</h2>
+                <p>Legacy Capsule: Preserving moments that matter through beautifully designed PDF templates.</p>
+                
+                <div class="footer-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('templates')">Browse Templates</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('custom')">Request Custom Design</button>
+                </div>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <svg width="30" height="30" viewBox="0 0 40 40" class="logo-icon">
+                            <defs>
+                                <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ff9a9e"/>
+                                    <stop offset="100%" style="stop-color:#fecfef"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="8" y="12" width="24" height="16" rx="8" fill="url(#footerLogoGradient)"/>
+                            <circle cx="20" cy="20" r="3" fill="white"/>
+                            <path d="M15 20 L18 23 L25 16" stroke="white" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>Legacy Capsule</span>
+                    </div>
+                    <p class="footer-tagline">Preserving moments that matter through beautifully designed PDF templates.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#templates">Memory Templates</a></li>
+                        <li><a href="#templates">Wedding Capsules</a></li>
+                        <li><a href="#templates">Baby Journals</a></li>
+                        <li><a href="#templates">Memorial Tributes</a></li>
+                        <li><a href="#bundles">Bundle Deals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#custom">Custom Design</a></li>
+                        <li><a href="#reseller">Reseller Program</a></li>
+                        <li><a href="#support">Support</a></li>
+                        <li><a href="/admin">Admin Panel</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> support@legacycapsule.com</p>
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-map-marker-alt"></i> San Francisco, CA</p>
+                    </div>
+                    
+                    <div class="payment-info">
+                        <h4>Secure Payment</h4>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-stripe"></i>
+                            <i class="fab fa-cc-paypal"></i>
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-cc-amex"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Legacy Capsule. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Modal -->
+    <div class="modal" id="quoteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request a Quote</h3>
+                <button class="close-modal" onclick="closeQuoteModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Thank you for your interest in a custom template! Please fill out the form, and we'll get back to you within 24 hours with a personalized quote.</p>
+                <div class="quote-features">
+                    <div class="quote-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Custom design tailored to your needs</span>
+                    </div>
+                    <div class="quote-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Unlimited revisions included</span>
+                    </div>
+                    <div class="quote-feature">
+                        <i class="fas fa-check"></i>
+                        <span>Professional design consultation</span>
+                    </div>
+                    <div class="quote-feature">
+                        <i class="fas fa-check"></i>
+                        <span>AI dictation integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reseller Modal -->
+    <div class="modal" id="resellerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Join Reseller Program</h3>
+                <button class="close-modal" onclick="closeResellerModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="resellerForm">
+                    <div class="form-group">
+                        <label for="resellerName">Full Name *</label>
+                        <input type="text" id="resellerName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resellerEmail">Email Address *</label>
+                        <input type="email" id="resellerEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resellerPackage">Package *</label>
+                        <select id="resellerPackage" name="package" required>
+                            <option value="">Select a package...</option>
+                            <option value="basic">Basic (30% commission)</option>
+                            <option value="pro">Pro (40% commission - $49/month)</option>
+                            <option value="partner">Partner (50% commission - $99/month)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="resellerExperience">Experience with Digital Products</label>
+                        <textarea id="resellerExperience" name="experience" rows="3" 
+                                  placeholder="Tell us about your experience selling digital products or your marketing background..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
