@@ -9,7 +9,7 @@ let recognition = null;
 const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:3001/api' : '/api';
 
 // Stripe Configuration
-const stripe = Stripe('pk_test_your_stripe_publishable_key_here'); // Replace with your actual publishable key
+const stripe = Stripe('pk_test_51RqZ9V6K3mHtUMYglwGmqpmjb8kvuvQ1HWVnM5fQoVBkNkSKxYrXquaVv03Fyvd7kR7TEXoEAdg0kXwSJn8UDywF00XyqfIA2F'); // Replace with your actual publishable key
 
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {

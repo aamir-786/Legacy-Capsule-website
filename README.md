@@ -160,7 +160,7 @@ The application uses Stripe for secure payment processing:
 5. **Download Delivery**: Users receive download links for their customized PDFs
 
 ## 🎨 Template Categories
-
+There are many catagories
 ### Available Templates
 1. **Memory Letter** ($12.99) - Personal memory sharing
 2. **Birthday Memory Card** ($9.99) - Birthday celebrations

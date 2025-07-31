@@ -63,7 +63,7 @@ p {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 50%, #fecfef 100%);
     color: #333;
 }
 
@@ -73,12 +73,12 @@ p {
 
 .btn-secondary {
     background-color: #fff;
-    color: #ff9a9e;
-    border: 2px solid #ff9a9e;
+    color: #1411c5;
+    border: 2px solid #1411c5;
 }
 
 .btn-secondary:hover {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #1411c5 100%);
     color: #333;
 }
 
@@ -137,7 +137,7 @@ p {
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #1411c5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -158,7 +158,7 @@ p {
 }
 
 .nav-link:hover {
-    color: #ff9a9e;
+    color: #1411c5;
 }
 
 .nav-link::after {
@@ -168,7 +168,7 @@ p {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #1411c5 100%);
     transition: width 0.3s ease;
 }
 
@@ -194,15 +194,15 @@ p {
 
 .cart-btn:hover {
     background-color: #f8f9fa;
-    color: #ff9a9e;
+    color: #1411c5;
 }
 
 .cart-count {
     position: absolute;
     top: -5px;
     right: -5px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-    color: #333;
+    background: linear-gradient(135deg, #1411c5 0%, #ff9a9e 100%);
+    color: #ffffff;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -221,7 +221,7 @@ p {
 }
 
 .checkout-btn {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 100%);
     color: #333;
     border: none;
     padding: 10px 20px;
@@ -246,7 +246,7 @@ p {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #1411c5 100%);
     transition: all 0.3s ease;
     border-radius: 2px;
 }
@@ -288,7 +288,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #1411c5 100%);
     color: #333;
 }
 
@@ -341,7 +341,7 @@ p {
 
 .cart-item-price {
     font-weight: 600;
-    color: #ff9a9e;
+    color: #1411c5;
 }
 
 .remove-item {
@@ -374,7 +374,7 @@ p {
 
 .checkout-btn-full {
     width: 100%;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 100%);
     color: #333;
     border: none;
     padding: 15px;
@@ -405,7 +405,7 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ff9a9e" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23fecfef" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%231411c5" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23fecfef" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
     opacity: 0.3;
 }
 
@@ -418,7 +418,7 @@ p {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #1411c5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -491,7 +491,7 @@ p {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #1411c5 100%);
     border-radius: 2px;
 }
 
@@ -537,7 +537,7 @@ p {
 .feature-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -582,7 +582,7 @@ p {
 
 .template-image {
     height: 200px;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -609,7 +609,7 @@ p {
 .template-price {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #ff9a9e;
+    color: #1411c5;
     margin: 1rem 0;
 }
 
@@ -626,17 +626,17 @@ p {
 
 .view-sample-btn {
     background: transparent;
-    color: #ff9a9e;
-    border: 2px solid #ff9a9e;
+    color: #1411c5;
+    border: 2px solid #1411c5;
 }
 
 .view-sample-btn:hover {
-    background: #ff9a9e;
+    background: #1411c5;
     color: white;
 }
 
 .add-to-cart-btn {
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 100%);
     color: #333;
     border: none;
 }
@@ -670,7 +670,7 @@ p {
 }
 
 .bundle-card.featured {
-    border: 3px solid #ff9a9e;
+    border: 3px solid #1411c5;
     transform: scale(1.05);
 }
 
@@ -680,7 +680,7 @@ p {
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 100%);
     color: #333;
     padding: 5px 15px;
     border-radius: 20px;
@@ -703,7 +703,7 @@ p {
 .sale-price {
     font-size: 2rem;
     font-weight: 700;
-    color: #ff9a9e;
+    color: #1411c5;
 }
 
 .bundle-features {
@@ -770,7 +770,7 @@ p {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ff9a9e;
+    border-color: #1411c5;
     box-shadow: 0 0 0 3px rgba(255, 154, 158, 0.1);
 }
 
@@ -846,19 +846,19 @@ p {
 }
 
 .package-card:hover {
-    border-color: #ff9a9e;
+    border-color: #1411c5;
     transform: translateY(-5px);
 }
 
 .package-card.featured {
-    border-color: #ff9a9e;
+    border-color: #1411c5;
     background: linear-gradient(135deg, #fff5f5 0%, #fef7ff 100%);
 }
 
 .package-price {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #ff9a9e;
+    color: #1411c5;
     margin: 0.5rem 0;
 }
 
@@ -894,7 +894,7 @@ p {
 }
 
 .ai-dictation h4 {
-    color: #ff9a9e;
+    color: #1411c5;
     margin-bottom: 1rem;
 }
 
@@ -913,7 +913,7 @@ p {
 }
 
 .upload-area {
-    border: 3px dashed #ff9a9e;
+    border: 3px dashed #1411c5;
     border-radius: 16px;
     padding: 3rem;
     text-align: center;
@@ -930,7 +930,7 @@ p {
 
 .upload-area i {
     font-size: 3rem;
-    color: #ff9a9e;
+    color: #1411c5;
     margin-bottom: 1rem;
 }
 
@@ -977,7 +977,7 @@ p {
     top: -10px;
     left: 20px;
     font-size: 4rem;
-    color: #ff9a9e;
+    color: #1411c5;
     opacity: 0.3;
     font-family: serif;
 }
@@ -1060,7 +1060,7 @@ p {
 }
 
 .faq-question i {
-    color: #ff9a9e;
+    color: #1411c5;
     transition: transform 0.3s ease;
 }
 
@@ -1152,7 +1152,7 @@ p {
 }
 
 .footer-section ul li a:hover {
-    color: #ff9a9e;
+    color: #1411c5;
 }
 
 .contact-info p {
@@ -1164,7 +1164,7 @@ p {
 }
 
 .contact-info i {
-    color: #ff9a9e;
+    color: #1411c5;
     width: 20px;
 }
 
@@ -1185,7 +1185,7 @@ p {
 }
 
 .payment-icons i:hover {
-    color: #ff9a9e;
+    color: #1411c5;
 }
 
 .footer-bottom {
@@ -1201,7 +1201,7 @@ p {
 }
 
 .footer-bottom a:hover {
-    color: #ff9a9e;
+    color: #1411c5;
 }
 
 /* Modal */
@@ -1251,7 +1251,7 @@ p {
     align-items: center;
     padding: 1.5rem;
     border-bottom: 1px solid #eee;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    background: linear-gradient(135deg, #1411c5 0%, #fecfef 100%);
     color: #333;
     border-radius: 16px 16px 0 0;
 }
@@ -1435,7 +1435,7 @@ p {
 
 .spinner {
     border: 2px solid #f3f3f3;
-    border-top: 2px solid #ff9a9e;
+    border-top: 2px solid #1411c5;
     border-radius: 50%;
     width: 20px;
     height: 20px;
@@ -1459,7 +1459,7 @@ input:focus,
 select:focus,
 textarea:focus,
 a:focus {
-    outline: 2px solid #ff9a9e;
+    outline: 2px solid #1411c5;
     outline-offset: 2px;
 }
 
