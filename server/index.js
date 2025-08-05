@@ -69,7 +69,7 @@ const templates = [
     {
         id: 'memory-letter',
         name: 'Memory Letter',
-        price: 12.99,
+        price: 1.99,
         description: 'A heartfelt letter template to share memories and thoughts with loved ones.',
         category: 'personal',
         fields: ['title', 'message', 'images', 'audio', 'signature']
